@@ -3,7 +3,7 @@ const hakuSyote = document.getElementById('hakuSyote');
 const elokuvaTiedot = document.getElementById('elokuvaTiedot');
 
 // Haetaan teatterilista Finnkino API:sta
-fetch('http://www.finnkino.fi/xml/TheatreAreas/')
+fetch('https://www.finnkino.fi/xml/TheatreAreas/')
     .then(vastaus => vastaus.text())
     .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
     .then(data => {
@@ -26,7 +26,7 @@ function haeJaNaytaElokuvat() {
     var xhr = new XMLHttpRequest();
 
     // Määritetään se: GET-pyyntö URL-osoitteeseen /article/.../load
-    xhr.open('GET', `http://www.finnkino.fi/xml/Schedule/?area=${teatteriValinta.value}&dt=${new Date().toISOString().split('T')[0]}`);
+    xhr.open('GET', `https://www.finnkino.fi/xml/Schedule/?area=${teatteriValinta.value}&dt=${new Date().toISOString().split('T')[0]}`);
 
     // Lähetetään pyyntö verkon yli
     xhr.send();
